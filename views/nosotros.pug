@@ -1,1 +1,33 @@
-p= viajes
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        .row
+            .col-md-5
+                img(src="img/nosotros.jpg", alt="", class="img-fluid")
+            .col-md-7
+                h1= pagina
+                //h1 #{pagina} es otra manera de usar la variable
+                blockquote  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet tristique ex. Fusce at est luctus, auctor ex congue, ornare sapien. Vivamus nec imperdiet purus, id hendrerit dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sit amet consectetur purus. Aenean fermentum risus tortor, et pellentesque mauris venenatis commodo. Duis ultricies ex eget accumsan lobortis. Cras a lobortis tellus.
+
+                p Mauris in nunc non nibh dictum pharetra. Ut ut fermentum eros, vitae vulputate arcu. Praesent mollis ultricies sem id pharetra. Donec maximus at tellus sit amet semper. Curabitur ac gravida ex. Sed ac augue vehicula, blandit dui in, semper tortor. Mauris porta bibendum orci quis efficitur. Praesent vestibulum interdum mollis.
+
+                p Nulla sodales sagittis felis. Proin varius mi consequat est vestibulum, id dictum elit pellentesque. Curabitur ullamcorper lacus in ex dignissim cursus. Nunc egestas maximus neque ornare porttitor. Maecenas rutrum eu purus quis finibus. Nam ut dignissim felis. Integer eu purus augue.
+
+    .listado-iconos
+        .container.mt-5.py-5.text-center
+            .row
+                .col-md-4
+                    img(src="img/icono_seguridad.svg", alt="", class="img-fluid mb-4")
+                    h2.mb-4 seguridad
+                    p Suspendisse nec dolor vel lacus interdum ultricies eu sit amet justo. Mauris varius mollis molestie. Duis varius diam placerat orci elementum consequat.
+
+                .col-md-4
+                    img(src="img/icono_destinos.svg", alt="", class="img-fluid mb-4")
+                    h2.mb-4 mejores destinos
+                    p Suspendisse nec dolor vel lacus interdum ultricies eu sit amet justo. Mauris varius mollis molestie. Duis varius diam placerat orci elementum consequat.
+
+                .col-md-4
+                    img(src="img/icono_precios.svg", alt="", class="img-fluid mb-4")
+                    h2.mb-4 los mejores precios
+                    p Suspendisse nec dolor vel lacus interdum ultricies eu sit amet justo. Mauris varius mollis molestie. Duis varius diam placerat orci elementum consequat.
