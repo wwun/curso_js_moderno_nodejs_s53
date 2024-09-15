@@ -16,7 +16,7 @@ db.authenticate()
     .catch( error => console.log(error));
 
 //definir puerto
-const port = process.env.port || 4000;  //process.env.port es la variable de entorno, en local se va a usar 4000 hasta qe se haga el deployment
+const port = process.env.PORT || 4000;  //process.env.port es la variable de entorno, en local se va a usar 4000 hasta qe se haga el deployment
 
 //habilitar pug
 app.set('view engine', 'pug');
