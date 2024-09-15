@@ -1,8 +1,19 @@
 //const express = require('express'); //del paqete express instalado se extrae express, se importa express, require es de common js no de javascript pero es la manera antigua aunqe muy usada
 import express from 'express';  //hace lo mismo qe require, se debe agregar en package.json "type": "module",
-import router from './routes/index.js'; //se importa el router que es la instancia de express y qe contiene los gets
+import dotenv from 'dotenv';    //importando la clase con las variables de entorno
+import router from './routes/index.js'; //se importa el router que es la instancia de express y qe contiene los gets, es el encargado de registrar todas las url o endpoints qe la aplicación soporta, por ejemplo si se accede a /productos, el router llama a un controlador qe se comunica con el modelo paraobtener los datos qe son pasados a la vista
+import db from './config/db.js';
+
+dotenv.config();    //accede a las variables de entorno
+
+console.log(process.env.DATABASE);  //accede a las variables con process.env.DATABASE
 
 const app = express();  //extrae la función para ejecutar express
+
+//conectar a la base de datos
+db.authenticate()
+    .then( () => console.log('base de datos conectada'))
+    .catch( error => console.log(error));
 
 //definir puerto
 const port = process.env.port || 4000;  //process.env.port es la variable de entorno, en local se va a usar 4000 hasta qe se haga el deployment
@@ -22,6 +33,8 @@ app.use((req, res, next) => {   //responde a todos los verbos, next es para cuan
 // res.locals, se utiliza para compartir variables entre todas las vistas (plantillas) de la aplicación, los datos se asignan a res.locals y están disponibles en todas las vistas, se utiliza para pasar datos que son comunes a varias vistas, como el año actual, el título de la página, etc, los datos se mantienen entre solicitudes, por lo que no es necesario volver a asignarlos en cada solicitud
 // res.render(), se utiliza para pasar datos específicos a una vista (plantilla) en particular, los datos se pasan como un objeto en el segundo argumento de res.render(), los datos solo están disponibles en la vista que se está renderizando en ese momento, se utiliza para pasar datos que son específicos para una sola vista
 
+//agregar body parser para leer los datos del formulario
+app.use(express.urlencoded({extended:true}));
 
 //definir la carpeta pública
 app.use(express.static('public'));
@@ -33,6 +46,12 @@ app.listen(port, () => {    //arranca el servidor y se activa en esucha por el p
     console.log(`el servidor está funcionando en el puerto ${port}`);
 });
 
+//instalar npm install mysql2 sequelize
+
+//creando las variables de entorno
+//npm i dotenv
+//se importa las dependencias
+//se crea un archivo .env
 
 
 /*

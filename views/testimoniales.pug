@@ -2,6 +2,33 @@ extends ./layout/index
 
 block contenido
     main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+        //- h1= pagina es otra manera de usar la variable
+
+        blockquote.text-center lee sobre nuestros clientes y sus experiencias
+        include ./layout/bloque_testimoniales
+        
         .row
-            h1 #{pagina}
-            //h1= pagina es otra manera de usar la variable
+
+            .col-md-12
+                h2.d-block.w-100.text-center agrega un testimonial
+
+                if(errores)
+                    each error in errores
+                        .alert.col.alert-danger.text-center= error.mensaje
+
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="/testimoniales" method="POST")
+                        .form-group
+                            label(for="nombre") nombre
+                            input#nombre(type="text", placeholder="tu nombre", name="nombre", class="form-control", value= nombre) 
+                            //- name es la etiqeta qe se usa para recibir los datos desde el formulario   {   nombre: 'William',  correo: 'williamwun@gmail.com', mensaje: 'las mejores vacaciones'   }
+                        .form-group
+                            label(for="correo") correo
+                            input#correo(type="text", placeholder="tu correo", name="correo", class="form-control", value= correo)
+                        .form-group
+                            label(for="mensaje") mensaje
+                            textarea#mensaje(class="form-control", name="mensaje", placeholder="tu mensaje", rows= 3)= mensaje
+                        
+                        input.btn.btn-success.btn-block(type="submit" value="enviar testimonial")

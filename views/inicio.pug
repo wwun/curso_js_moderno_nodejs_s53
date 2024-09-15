@@ -1,7 +1,35 @@
 extends ./layout/index
 
+block slider
+    .slider
+        h1 Rio de janeiro
+        em aventura
+
 block contenido
     main.container.mt-5
-        .row
-            h1= pagina
+        h2.text-center.mb-5 sobre nosotros
+        .row.mb-5
+            .col-md-6
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet tristique ex. Fusce at est luctus, auctor ex congue, ornare sapien. Vivamus nec imperdiet purus, id hendrerit dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sit amet consectetur purus. Aenean fermentum risus tortor, et pellentesque mauris venenatis commodo. Duis ultricies ex eget accumsan lobortis. Cras a lobortis tellus
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet tristique ex. Fusce at est luctus, auctor ex congue, ornare sapien. Vivamus nec imperdiet purus, id hendrerit dui. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sit amet consectetur purus. Aenean fermentum risus tortor, et pellentesque mauris venenatis commodo. Duis ultricies ex eget accumsan lobortis. Cras a lobortis tellus
+            .col-md-6
+                img(src="/img/inicio_nosotros.jpg", alt="nosotros", class="img-fluid")
+            //h1= pagina
             //h1 #{pagina} es otra manera de usar la variable
+        
+        include ./layout/bloque_viajes
+    
+    .descuento
+        .container
+            .row
+                .col-md-6
+                    .contenido
+                        h3 5% de descuento
+                        p.titulo viaje a canada
+                        p.fecha 20 de MArzo 2025 = 20 de MArzo 2025
+                        p.precio $2,500
+    
+    .container
+        h2.mt-5.text-center testimoniales
+        include ./layout/bloque_testimoniales
+            
